@@ -69,4 +69,13 @@ class APIController extends Controller
             "number as array" => $numAsArray
         ]);
     }
+
+    function thirdAPI($str){
+        //Split string to array based on pattern switching
+        //Patterns being detected are characters, spaces, dots, and numbers
+        preg_match_all('/([0-9]+|[a-zA-Z]+|[\s]+|[\.])/', $str, $matches);
+        echo json_encode($matches[0]);
+        $matches = $matches[0];
+                                                             
+    }
 }
