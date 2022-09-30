@@ -9,6 +9,8 @@ Route::group(['prefix' => "v1"], function(){
     Route::get("/firstAPI/{name}", [APIController::class, 'firstAPI']);
     Route::get("/secondAPI/{num}", [APIController::class, 'secondAPI']);
     Route::get("/thirdAPI/{str}", [APIController::class, 'thirdAPI']);
+    Route::get("/fourthAPI/{str}", [APIController::class, 'fourthAPI']);
+
 });
 
 

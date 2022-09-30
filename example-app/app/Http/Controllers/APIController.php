@@ -93,6 +93,18 @@ class APIController extends Controller
 
     function fourthAPI($str){
         $arr = explode(" ", $str);
-        echo $arr;
+        print_r($arr);
+        if($arr[0] == '+'){
+
+        }
+        else if($arr[0] == '-'){
+            
+        }
+        else if($arr[0] == '/'){
+            
+        }
+        else if($arr[0] == '*'){
+            
+        }
     }
 }
