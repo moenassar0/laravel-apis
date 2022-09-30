@@ -92,8 +92,10 @@ class APIController extends Controller
     }
 
     function fourthAPI($str){
+        //Split string into array
         $arr = explode(" ", $str);
-        print_r($arr);
+        
+        //Check first array element which is the operation being used
         if($arr[0] == '+'){
             $answer = 0;
             for($i = 1; $i < count($arr) - 1; $i++){
@@ -106,6 +108,7 @@ class APIController extends Controller
                 $answer += $arr[$i] - $arr[$i + 1];
             }
         }
+        //% is being used instead of / so we can use it in the URL
         else if($arr[0] == '%'){
             $answer = 0;
             for($i = 1; $i < count($arr) - 1; $i++){
