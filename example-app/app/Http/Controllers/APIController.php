@@ -95,7 +95,10 @@ class APIController extends Controller
         $arr = explode(" ", $str);
         print_r($arr);
         if($arr[0] == '+'){
-
+            $answer = 0;
+            for($i = 1; $i < count($arr); $i++){
+                $answer += $arr[$i];
+            }
         }
         else if($arr[0] == '-'){
             
@@ -106,5 +109,6 @@ class APIController extends Controller
         else if($arr[0] == '*'){
             
         }
+        echo $answer;
     }
 }
