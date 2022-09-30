@@ -94,33 +94,26 @@ class APIController extends Controller
     function fourthAPI($str){
         //Split string into array
         $arr = explode(" ", $str);
-        
-        //Check first array element which is the operation being used
-        if($arr[0] == '+'){
-            $answer = 0;
-            for($i = 1; $i < count($arr) - 1; $i++){
+        $answer = 0;
+
+        for($i = 1; $i < count($arr) - 1; $i++){
+            if($arr[0] == '+'){
                 $answer += $arr[$i] + $arr[$i + 1];
             }
-        }
-        else if($arr[0] == '-'){
-            $answer = 0;
-            for($i = 1; $i < count($arr) - 1; $i++){
+            else if($arr[0] == '-'){
                 $answer += $arr[$i] - $arr[$i + 1];
             }
-        }
-        //% is being used instead of / so we can use it in the URL
-        else if($arr[0] == '%'){
-            $answer = 0;
-            for($i = 1; $i < count($arr) - 1; $i++){
+            //% is being used instead of / so we can use it in the URL
+            else if($arr[0] == '%'){
                 $answer += $arr[$i] / $arr[$i + 1];
             }
-        }
-        else if($arr[0] == '*'){
-            $answer = 0;
-            for($i = 1; $i < count($arr) - 1; $i++){
+            else if($arr[0] == '*'){
                 $answer += $arr[$i] * $arr[$i + 1];
             }
         }
-        echo $answer;
+        return response()->json([
+            "status" => "Success",
+            "answer" => $answer
+        ]);     
     }
 }
