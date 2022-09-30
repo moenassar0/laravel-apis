@@ -82,7 +82,13 @@ class APIController extends Controller
                 $matches[$i] = decbin($matches[$i]);
             }
         }
-        echo json_encode($matches);
+        
+        //Join the array into string and return it
+        $matches = (implode("", $matches));
+        return response()->json([
+            "status" => "Success",
+            "message" => $matches
+        ]);
                                                              
     }
 }
