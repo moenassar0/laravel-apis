@@ -20,11 +20,22 @@ class APIController extends Controller
                 return -1;
         });
 
-        print_r($arr);
+        //Shuffle capital letters to the right side of their lowercase versions
+        for($i = 0; $i < count($arr); $i++){
+            if($i != count($arr) - 1){
+                if(strtolower($arr[$i]) == $arr[$i + 1]){
+                    $temp = $arr[$i + 1];
+                    $arr[$i + 1] = $arr[$i];
+                    $arr[$i] = $temp;
+                }
+            }
+        }
+        $arr = implode("", $arr);
 
-        
+
+        return response()->json([
+            "status" => "Success",
+            "message" => $arr
+        ]);
     }
-
-
-
 }
