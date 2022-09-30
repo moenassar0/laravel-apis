@@ -38,4 +38,22 @@ class APIController extends Controller
             "message" => $arr
         ]);
     }
+
+    function secondAPI($num){
+
+        $numAsArray = array();
+
+        //Transform number into array and find number of digits in number from array's length
+        function countDigits($number, $numAsArray){
+            $digits = 0;
+            while(($number) != 0){
+                $actualNumber = $number % 10;
+                $number = (int)($number / 10);
+                array_push($numAsArray, $actualNumber);
+            }
+            return ($numAsArray);
+        }
+
+        print_r(countDigits($num, $numAsArray));
+    }
 }
