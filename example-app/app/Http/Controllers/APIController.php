@@ -96,18 +96,27 @@ class APIController extends Controller
         print_r($arr);
         if($arr[0] == '+'){
             $answer = 0;
-            for($i = 1; $i < count($arr); $i++){
-                $answer += $arr[$i];
+            for($i = 1; $i < count($arr) - 1; $i++){
+                $answer += $arr[$i] + $arr[$i + 1];
             }
         }
         else if($arr[0] == '-'){
-            
+            $answer = 0;
+            for($i = 1; $i < count($arr) - 1; $i++){
+                $answer += $arr[$i] - $arr[$i + 1];
+            }
         }
-        else if($arr[0] == '/'){
-            
+        else if($arr[0] == '%'){
+            $answer = 0;
+            for($i = 1; $i < count($arr) - 1; $i++){
+                $answer += $arr[$i] / $arr[$i + 1];
+            }
         }
         else if($arr[0] == '*'){
-            
+            $answer = 0;
+            for($i = 1; $i < count($arr) - 1; $i++){
+                $answer += $arr[$i] * $arr[$i + 1];
+            }
         }
         echo $answer;
     }
