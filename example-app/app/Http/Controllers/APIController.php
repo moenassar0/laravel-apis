@@ -88,7 +88,11 @@ class APIController extends Controller
         return response()->json([
             "status" => "Success",
             "message" => $matches
-        ]);
-                                                             
+        ]);                                                   
+    }
+
+    function fourthAPI($str){
+        $arr = explode(" ", $str);
+        echo $arr;
     }
 }
