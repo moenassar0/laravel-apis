@@ -74,8 +74,15 @@ class APIController extends Controller
         //Split string to array based on pattern switching
         //Patterns being detected are characters, spaces, dots, and numbers
         preg_match_all('/([0-9]+|[a-zA-Z]+|[\s]+|[\.])/', $str, $matches);
-        echo json_encode($matches[0]);
         $matches = $matches[0];
+
+        //Check numbers found in array and change them into binary representation using decbin
+        for($i = 0; $i < count($matches); $i++){
+            if(is_numeric((int)$matches[$i]) && decbin($matches[$i] != 0)){
+                $matches[$i] = decbin($matches[$i]);
+            }
+        }
+        echo json_encode($matches);
                                                              
     }
 }
