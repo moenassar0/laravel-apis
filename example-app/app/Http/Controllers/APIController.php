@@ -54,6 +54,19 @@ class APIController extends Controller
             return ($numAsArray);
         }
 
-        print_r(countDigits($num, $numAsArray));
+        $numAsArray = countDigits($num, $numAsArray);
+        $length = count($numAsArray);
+
+        //For each array element multiply it by its position in the array, largest numbers are last in the array
+        for($i = $length - 1; $i > 0; $i--){
+            $numAsArray[$i] = (int)$numAsArray[$i] * pow(10, $i);
+        }
+
+        //Reverse array for proper reading
+        $numAsArray = (array_reverse($numAsArray));
+        return response()->json([
+            "status" => "Success",
+            "number as array" => $numAsArray
+        ]);
     }
 }
